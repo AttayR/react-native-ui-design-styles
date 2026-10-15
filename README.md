@@ -43,6 +43,27 @@ One full-stack Todo app built in **8 different UI design styles**. Every screen 
 
 > The blue ⚙️ button in the screenshots is Expo's development menu. It does not appear in the real app.
 
+## Neumorphism color themes
+
+The Neumorphism screen comes with **8 color themes**, including a dark mode. Switch between them with the color picker at the top of the screen.
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/neumorphism/cloud.png" width="200" /><br/><b>Cloud</b></td>
+    <td align="center"><img src="docs/screenshots/neumorphism/mint.png" width="200" /><br/><b>Mint</b></td>
+    <td align="center"><img src="docs/screenshots/neumorphism/peach.png" width="200" /><br/><b>Peach</b></td>
+    <td align="center"><img src="docs/screenshots/neumorphism/lavender.png" width="200" /><br/><b>Lavender</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/neumorphism/sky.png" width="200" /><br/><b>Sky</b></td>
+    <td align="center"><img src="docs/screenshots/neumorphism/rose.png" width="200" /><br/><b>Rose</b></td>
+    <td align="center"><img src="docs/screenshots/neumorphism/sand.png" width="200" /><br/><b>Sand</b></td>
+    <td align="center"><img src="docs/screenshots/neumorphism/midnight.png" width="200" /><br/><b>Midnight (dark)</b></td>
+  </tr>
+</table>
+
+Each theme is just a few colors in `NEU_THEMES` (`mobile/src/designs/Neumorphism.js`): a background, a lighter and a darker shade of it for the two shadows, plus text and accent colors. To add your own theme, add one more entry to that array.
+
 ## How it works
 
 ```
