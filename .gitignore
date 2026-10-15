@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+
+# Database ka data (apne todos) repo mein nahi jaana chahiye
+database/*.db
+
+# Expo
+.expo/
