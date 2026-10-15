@@ -1,4 +1,4 @@
-// BRUTALISM — kachcha (raw) look: monospace, bara UPPERCASE text, mote kaale border, koi gol kona nahi, koi sajawat nahi
+// BRUTALISM: raw look with monospace, huge UPPERCASE type, thick black rules, no rounded corners, no decoration
 import { ActivityIndicator, FlatList, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';

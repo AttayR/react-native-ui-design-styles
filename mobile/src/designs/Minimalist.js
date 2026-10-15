@@ -1,4 +1,4 @@
-// MINIMALIST — safed jagah, patli lines, sirf zaroori cheezein
+// MINIMALIST: white space, thin lines, only the essentials
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';

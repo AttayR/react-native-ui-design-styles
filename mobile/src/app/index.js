@@ -1,4 +1,4 @@
-// HOME SCREEN — 8 UI styles ki list. Tap karo to us style ki Todo screen khulti hai.
+// HOME SCREEN: lists the 8 UI styles. Tapping one opens the Todo screen in that style.
 import { router } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -16,11 +16,11 @@ export default function Home() {
         ListHeaderComponent={
           <View style={styles.header}>
             <Text style={styles.heading}>UI Styles</Text>
-            <Text style={styles.sub}>Aik hi Todo app, 8 alag designs</Text>
+            <Text style={styles.sub}>One Todo app, 8 design styles</Text>
           </View>
         }
         renderItem={({ item, index }) => (
-          // router.push("/material") -> src/app/[style].js khulegi, style = "material"
+          // router.push("/material") opens src/app/[style].js with style = "material"
           <Pressable
             onPress={() => router.push(`/${item.id}`)}
             style={({ pressed }) => [styles.row, pressed && { opacity: 0.6 }]}

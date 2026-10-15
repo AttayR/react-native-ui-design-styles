@@ -1,6 +1,6 @@
-// NEUMORPHISM: har cheez background ke rang ki, sirf shadows se shape banti hai.
-// Raised = upar-left safed roshni + neeche-right gehri shadow (bahar ubhra hua)
-// Inset  = wohi do shadows andar ki taraf (dabaya hua)
+// NEUMORPHISM: every element shares the background color; shape comes only from shadows.
+// Raised = light highlight top-left + dark shadow bottom-right
+// Inset  = the same two shadows drawn inside (pressed in)
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -70,7 +70,7 @@ export default function Neumorphism({ todos, text, setText, loading, error, addT
           data={todos}
           keyExtractor={(item) => String(item.id)}
           keyboardShouldPersistTaps="handled"
-          // Shadows bahar tak phailti hain — padding na ho to kinare kat jaate hain
+          // Shadows extend outside each card; padding keeps them from being clipped
           contentContainerStyle={styles.list}
           ListEmptyComponent={<Text style={styles.empty}>Nothing to do</Text>}
           renderItem={({ item }) => (

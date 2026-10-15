@@ -1,4 +1,4 @@
-// MATERIAL DESIGN (Material 3) — top app bar, outlined text field, cards, FAB, purple "primary" color
+// MATERIAL DESIGN (Material 3): top app bar, outlined text field, cards, FAB, purple "primary" color
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -15,7 +15,7 @@ const M = {
   error: '#B3261E',
 };
 
-// Material "elevation" = halki si neeche ki shadow
+// Material "elevation" levels as soft drop shadows
 const elevation1 = { boxShadow: '0px 1px 3px rgba(0,0,0,0.15), 0px 1px 2px rgba(0,0,0,0.3)' };
 const elevation3 = { boxShadow: '0px 4px 8px rgba(0,0,0,0.15), 0px 1px 3px rgba(0,0,0,0.3)' };
 

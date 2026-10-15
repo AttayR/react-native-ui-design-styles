@@ -1,17 +1,17 @@
-// GLASSMORPHISM — rangeen background ke upar dhundla (blur) shaffaf sheesha, patla safed border
+// GLASSMORPHISM: frosted, translucent glass panels with thin white borders over a colorful background
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { BlurView } from 'expo-blur';
 
-// Glass tabhi achha lagta hai jab peeche kuch rangeen ho — is liye yeh blobs
+// Glass needs something colorful behind it, hence these blobs
 function Background() {
   return (
     <View style={StyleSheet.absoluteFill}>
       <View style={[styles.blob, { backgroundColor: '#8B5CF6', top: -60, left: -80, width: 300, height: 300 }]} />
       <View style={[styles.blob, { backgroundColor: '#F472B6', top: 260, right: -100, width: 320, height: 320 }]} />
       <View style={[styles.blob, { backgroundColor: '#22D3EE', bottom: -80, left: -40, width: 280, height: 280 }]} />
-      {/* Blobs ke kinare naram karne ke liye poore background par blur */}
+      {/* Blur the whole background to soften the blob edges */}
       <BlurView intensity={80} tint="dark" style={StyleSheet.absoluteFill} />
     </View>
   );
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: '#1E1B4B' },
   blob: { position: 'absolute', borderRadius: 999, opacity: 0.85 },
   glass: {
-    overflow: 'hidden', // BlurView ko rounded corners ke liye zaroori
+    overflow: 'hidden', // required for rounded corners on BlurView
     borderRadius: 22,
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.45)',

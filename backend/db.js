@@ -1,23 +1,23 @@
 // DATABASE LAYER
-// Data yahan store hota hai: project ke "database/todos.db" file mein (SQLite database).
-// SQLite = poori database aik file mein. Koi alag server install nahi karna parta.
+// Data is stored in the project's "database/todos.db" file (SQLite).
+// SQLite keeps the whole database in a single file, so no separate DB server is needed.
 import { DatabaseSync } from 'node:sqlite';
 import { fileURLToPath } from 'node:url';
 
-// Path is file ke hisaab se — server kisi bhi folder se chalao, database wahi rahegi
+// Resolve the path relative to this file so it works no matter where the server is started
 const db = new DatabaseSync(fileURLToPath(new URL('../database/todos.db', import.meta.url)));
 
-// Table banao (agar pehle se nahi bani). Table = Excel sheet jaisi: columns + rows.
+// Create the table on first run.
 db.exec(`
   CREATE TABLE IF NOT EXISTS todos (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     title      TEXT    NOT NULL,
-    done       INTEGER NOT NULL DEFAULT 0,          -- SQLite mein boolean nahi, 0/1 use karte hain
+    done       INTEGER NOT NULL DEFAULT 0,          -- SQLite has no boolean type, so 0/1 is used
     created_at TEXT    NOT NULL DEFAULT (datetime('now'))
   )
 `);
 
-// Database se row aati hai { done: 0 } — frontend ko { done: false } chahiye
+// Rows come back as { done: 0 }; the client expects { done: false }
 const toTodo = (row) => row && { ...row, done: Boolean(row.done) };
 
 export function getAllTodos() {
@@ -29,7 +29,7 @@ export function getTodo(id) {
 }
 
 export function createTodo(title) {
-  // "?" placeholder — kabhi bhi user ka text seedha SQL string mein mat jorna (SQL injection)
+  // Use "?" placeholders; never concatenate user input into SQL (prevents SQL injection)
   const result = db.prepare('INSERT INTO todos (title) VALUES (?)').run(title);
   return getTodo(result.lastInsertRowid);
 }

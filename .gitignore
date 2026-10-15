@@ -1,7 +1,7 @@
 node_modules/
 .DS_Store
 
-# Database ka data (apne todos) repo mein nahi jaana chahiye
+# Local database file (personal data, not committed)
 database/*.db
 
 # Expo

@@ -1,20 +1,20 @@
 // API SERVER (Express)
-// Kaam: frontend se HTTP request aati hai -> yahan route match hota hai -> db.js se data -> JSON wapis.
+// Flow: the client sends an HTTP request -> a route matches it -> db.js reads/writes data -> JSON response.
 import express from 'express';
 import cors from 'cors';
 import * as db from './db.js';
 
 const app = express();
-app.use(cors());          // web frontend ko doosre port se call karne ki ijazat
-app.use(express.json());  // request body ka JSON parse karke req.body mein daal deta hai
+app.use(cors());          // allow web clients on other origins to call the API
+app.use(express.json());  // parse JSON request bodies into req.body
 
-// Har request ko terminal mein print karo — seekhte waqt bohat help karta hai
+// Log every request (handy while developing)
 app.use((req, _res, next) => {
   console.log(req.method, req.url, req.body ?? '');
   next();
 });
 
-// REST API: aik "resource" (todos) + HTTP methods = CRUD
+// REST API: one resource (todos) + HTTP methods = CRUD
 // GET    /todos      -> Read all
 // POST   /todos      -> Create
 // PATCH  /todos/:id  -> Update
@@ -26,24 +26,24 @@ app.get('/todos', (_req, res) => {
 
 app.post('/todos', (req, res) => {
   const title = req.body?.title?.trim();
-  if (!title) return res.status(400).json({ error: 'title zaroori hai' });
+  if (!title) return res.status(400).json({ error: 'title is required' });
   res.status(201).json(db.createTodo(title));
 });
 
 app.patch('/todos/:id', (req, res) => {
   const todo = db.updateTodo(Number(req.params.id), req.body ?? {});
-  if (!todo) return res.status(404).json({ error: 'todo nahi mila' });
+  if (!todo) return res.status(404).json({ error: 'todo not found' });
   res.json(todo);
 });
 
 app.delete('/todos/:id', (req, res) => {
   const ok = db.deleteTodo(Number(req.params.id));
-  if (!ok) return res.status(404).json({ error: 'todo nahi mila' });
+  if (!ok) return res.status(404).json({ error: 'todo not found' });
   res.status(204).end();
 });
 
 const PORT = process.env.PORT || 4000;
-// '0.0.0.0' taa ke same WiFi par phone (Expo Go) bhi connect kar sake
+// Bind to 0.0.0.0 so a phone on the same Wi-Fi (Expo Go) can connect
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`API chal rahi hai: http://localhost:${PORT}`);
+  console.log(`API running at http://localhost:${PORT}`);
 });

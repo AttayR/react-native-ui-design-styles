@@ -1,6 +1,13 @@
-# Todo App — 8 UI Styles · React Native + Node + SQLite
+# React Native UI Design Styles
 
-One full-stack Todo app built in **8 different UI design styles**. Every screen uses the same backend and the same data; only the design changes. You can use it as a design-theme catalogue: open the app, browse the styles, and pick one.
+**Glassmorphism, Neumorphism, Neobrutalism, Skeuomorphism, Material Design, iOS (Cupertino), Brutalism and Minimalist UI, built in React Native with Expo.**
+
+One full-stack Todo app built in **8 different UI design styles**. Every screen uses the same backend and the same data; only the design changes. Use it as a design-theme catalogue: open the app, browse the styles, and pick one. Or copy a single style file into your own React Native project.
+
+![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?logo=react&logoColor=white)
+![Expo](https://img.shields.io/badge/Expo-SDK_57-000020?logo=expo&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-22+-339933?logo=nodedotjs&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-built--in-003B57?logo=sqlite&logoColor=white)
 
 <p align="center">
   <img src="docs/screenshots/home.png" width="260" alt="Home screen: list of 8 UI styles" />

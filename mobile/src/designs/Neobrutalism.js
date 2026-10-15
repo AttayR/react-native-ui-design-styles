@@ -1,16 +1,16 @@
-// NEOBRUTALISM — mote kaale border, chamkeele rang, aur "hard" shadow (blur nahi, seedha offset).
-// Button dabao to shadow gayab aur button us jagah khisak jata hai — playful feel.
+// NEOBRUTALISM: thick black borders, bright colors, and "hard" offset shadows with no blur.
+// Pressing a button removes its shadow and shifts it into place for a playful, tactile feel.
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
 const N = { bg: '#FDE047', pink: '#FF6B9D', mint: '#7CF5C4', blue: '#7DD3FC', card: '#FFFFFF', ink: '#000000' };
 
-// Hard shadow: offset hai, blur 0
+// Hard shadow: offset only, zero blur
 const hard = (d = 5) => ({ boxShadow: `${d}px ${d}px 0px ${N.ink}` });
 const pressedShift = (d = 5) => ({ transform: [{ translateX: d }, { translateY: d }], boxShadow: 'none' });
 
-// Har todo ko alag rang — playful
+// Cycle through colors for each todo
 const CARD_COLORS = ['#FFFFFF', '#C4B5FD', '#7DD3FC', '#FDBA74'];
 
 export default function Neobrutalism({ todos, text, setText, loading, error, addTodo, toggleTodo, deleteTodo, remaining, name, tagline, onBack }) {

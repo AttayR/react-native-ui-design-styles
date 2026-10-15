@@ -1,5 +1,5 @@
-// SKEUOMORPHISM — asli cheez jaisa: chamray (leather) ka cover, silai (stitching), peela lined notepad,
-// laal margin line, haath ki likhai jaisa font, aur chamakdaar ubhra hua button.
+// SKEUOMORPHISM: mimics real objects with a stitched leather cover, a yellow ruled notepad,
+// a red margin line, handwriting-style font, and a glossy raised button.
 import { ActivityIndicator, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -23,7 +23,7 @@ export default function Skeuomorphism({ todos, text, setText, loading, error, ad
     <View style={styles.desk}>
       <StatusBar style="light" />
       <SafeAreaView style={{ flex: 1 }}>
-        {/* Leather cover — dashed border = silai */}
+        {/* Leather cover; the dashed border is the stitching */}
         <View style={styles.cover}>
           <View style={styles.stitching}>
             <Pressable onPress={onBack} style={{ alignSelf: 'flex-start' }}>
@@ -88,7 +88,7 @@ export default function Skeuomorphism({ todos, text, setText, loading, error, ad
                 </View>
               ))
             )}
-            {/* Khaali lines — asli notepad ki tarah */}
+            {/* Empty ruled lines, like a real notepad */}
             {Array.from({ length: 8 }).map((_, i) => (
               <View key={`blank-${i}`} style={styles.line} />
             ))}

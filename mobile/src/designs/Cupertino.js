@@ -1,4 +1,4 @@
-// iOS / CUPERTINO — large title, "‹ Back" nav button, grouped inset list, system blue, search-style field
+// iOS / CUPERTINO: large title, "‹ Back" nav button, grouped inset list, system blue, search-style field
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -66,7 +66,7 @@ export default function Cupertino({ todos, text, setText, loading, error, addTod
                     <Text style={styles.delete}>Delete</Text>
                   </Pressable>
                 </Pressable>
-                {/* iOS separators text ke neeche se shuru hote hain, kinare se nahi */}
+                {/* iOS separators are inset to align with the text, not the cell edge */}
                 {i < todos.length - 1 && <View style={styles.separator} />}
               </View>
             ))}
